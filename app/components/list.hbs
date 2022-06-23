@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-body">
+    <div class="accordion" id="accordion-example">
+      {{#each @lossAlerts as |lossAlert index|}}
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-{{add index 1}}">
+            <button data-test-accordion={{index}} class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{add index 1}}" aria-expanded="false">
+              {{add index 1}}. {{capitalize lossAlert.mode}}
+            </button>
+          </h2>
+          <div id="collapse-{{add index 1}}" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
+            <div class="accordion-body pt-0">
+              <div class="table-responsive m-4">
+                <table
+                  class="table table-vcenter">
+                  <thead>
+                    <tr>
+                      <th>Alert From</th>
+                      <th>Alert To</th>
+                      <th>Mode</th>
+                      <th>Test</th>
+                      <th>Start Minutes</th>
+                      <th>End Minutes</th>
+                      <th>Reason</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-test-alert-from={{index}}>{{moment-format lossAlert.alertFrom "DD/MM/YYYY HH:mm"}}</td>
+                      <td data-test-alert-to={{index}}>{{moment-format lossAlert.alertTo "DD/MM/YYYY HH:mm"}}</td>
+                      <td data-test-mode={{index}}>{{lossAlert.mode}}</td>
+                      <td data-test-test={{index}}>{{lossAlert.test}}</td>
+                      <td data-test-start-minutes={{index}}>{{lossAlert.startMinutes}}</td>
+                      <td data-test-end-minutes={{index}}>{{lossAlert.endMinutes}}</td>
+                      <td data-test-loss-reason={{index}}>{{lossAlert.lossReason.title}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

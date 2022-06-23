@@ -1,0 +1,12 @@
+{{page-title "LossAlert"}}
+{{#if this.error}}
+  <div class="empty">
+    <div class="empty-icon"><!-- Download SVG icon from http://tabler-icons.io/i/mood-sad -->
+      <!-- SVG icon code -->
+    </div>
+    <p data-test-error class="empty-title">{{this.error}}</p>
+  </div>
+{{else}}
+  <Dashboard />
+{{/if}}
+{{outlet}}

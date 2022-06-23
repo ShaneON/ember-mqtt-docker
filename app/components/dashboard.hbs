@@ -1,0 +1,102 @@
+{{yield}}
+<div data-test-dashboard class="page-wrapper">
+  <div class="page-header">
+    <div class="row align-items-center justify-content-around">
+      <div class="col-4 d-flex justify-content-start">
+        <h1 class="page-title">Loss Alerts Dashboard</h1>
+      </div>
+      <div class="col-4 d-flex justify-content-end">
+        <LinkTo @route="list">View All Loss Alerts</LinkTo>
+      </div>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="container-xl">
+      <div id="chartdiv" style="width: 100%; height: 500px;"></div>
+      <div class="card mt-5">
+        <div class="card-header d-flex justify-content-center">
+          <h3 class="card-title">Performance</h3>
+        </div>
+        <div class="card-body">
+          <div class="row row-cards">
+            <div class="col-md">
+              <div class="card">
+                <div class="card-status-top bg-red"></div>
+                <div class="card-header">
+                  <h3 class="card-title">Average Loss Hours</h3>
+                </div>
+                <div data-test-performance-avg class="card-body">
+                  {{number-format this.performanceAvgLossHours}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <div class="card-status-top bg-green"></div>
+                <div class="card-header">
+                  <h3 class="card-title">Total Loss Hours</h3>
+                </div>
+                <div data-test-performance-total class="card-body">
+                  {{number-format this.performanceTotalLossHours}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <div class="card-status-top bg-blue"></div>
+                <div class="card-header">
+                  <h3 class="card-title">Unresloved Losses</h3>
+                </div>
+                <div data-test-performance-unresolved class="card-body">
+                  {{this.performanceUnresolvedLosses.length}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-header d-flex justify-content-center">
+          <h3 class="card-title">Availability</h3>
+        </div>
+        <div class="card-body">
+          <div class="row row-cards">
+            <div class="col-md">
+              <div class="card">
+                <div class="card-status-top bg-red"></div>
+                <div class="card-header">
+                  <h3 class="card-title">Average Loss Hours</h3>
+                </div>
+                <div data-test-availability-avg class="card-body">
+                  {{number-format this.availabilityAvgLossHours}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <div class="card-status-top bg-green"></div>
+                <div class="card-header">
+                  <h3 class="card-title">Total Loss Hours</h3>
+                </div>
+                <div data-test-availability-total class="card-body">
+                  {{number-format this.availabilityTotalLossHours}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <div class="card-status-top bg-blue"></div>
+                <div class="card-header">
+                  <h3 class="card-title">Unresloved Losses</h3>
+                </div>
+                <div data-test-availability-unresolved class="card-body">
+                  {{this.availabilityUnresolvedLosses.length}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

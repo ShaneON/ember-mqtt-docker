@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  ember:
+    image: danlynn/ember-cli:3.28.5
+    container_name: ember
+    environment:
+      API_KEY: ${OEE_API_KEY}
+      API_TOKEN: ${OEE_API_TOKEN}
+      API_URL: ${OEE_API_URL}
+      MQTT_URL: ${OEE_MQTT_BROKER}
+      MQTT_TOPIC: ${OEE_MQTT_TOPIC}
+    volumes:
+      - .:/myapp
+      - node_modules:/myapp/node_modules
+    tmpfs:
+      - /myapp/tmp
+    ports:
+      - "4200:4200"
+      - "7020:7020"
+      - "7357:7357"
+
+volumes:
+  node_modules:
